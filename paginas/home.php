@@ -1,11 +1,18 @@
 <?php
+    session_start();
+
+    if (!isset($_SESSION["user"]) > 0) {
+      header("location:../");
+    }
     if (isset($_GET["sair"])) {
-        session_start();
         session_destroy();
         header("location:../index.php");
     }
-?>
 
+
+
+?>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +43,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link disabled" href="<?php echo $_SERVER["PHP_SELF"]."?sair=true";?>" tabindex="-1" aria-disabled="true">Sair</a>
+        <a class="nav-link" href="<?php echo $_SERVER["PHP_SELF"]."?sair=true";?>" tabindex="-1" aria-disabled="true">Sair</a>
       </li>
     </ul>
   </div>

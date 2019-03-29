@@ -11,6 +11,10 @@
         header("location:./paginas/home.php");
     }
 
+    if (isset($_SESSION["user"]) && $_SESSION["user"] > 0) {
+        header("location:./");
+    }
+
         require_once("./objetos/login.php");
 
     /*echo $_GET["primeiroParametro"];
